@@ -1,0 +1,13 @@
+{
+  "name": "simple-messenger",
+  "version": "1.0.0",
+  "description": "Простой веб-мессенджер: текстовый чат, фото и аудио/видео звонки (WebRTC)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}

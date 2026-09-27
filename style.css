@@ -1,0 +1,284 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f0f2f5;
+  height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- экран входа ---------- */
+.login-box {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 320px;
+}
+
+.login-box h1 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background: #4a76a8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #3d6491;
+}
+
+.error {
+  color: #d9534f;
+  min-height: 18px;
+  font-size: 13px;
+}
+
+/* ---------- основной экран ---------- */
+#app-screen {
+  align-items: stretch;
+}
+
+.app {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.sidebar-header {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.sidebar h3 {
+  font-size: 13px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+#users-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+#users-list li {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+#users-list li:hover {
+  background: #f0f2f5;
+}
+
+#users-list li.active {
+  background: #4a76a8;
+  color: #fff;
+}
+
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  padding: 14px 20px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.call-buttons button {
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.call-buttons button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.msg {
+  max-width: 60%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  word-wrap: break-word;
+}
+
+.msg.own {
+  align-self: flex-end;
+  background: #dcf1ff;
+}
+
+.msg .meta {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+}
+
+.msg img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-top: 4px;
+  display: block;
+}
+
+.message-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+}
+
+.attach-btn {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#photo-preview {
+  height: 36px;
+  border-radius: 4px;
+}
+
+.message-form input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+.message-form button[type="submit"] {
+  padding: 10px 18px;
+  background: #4a76a8;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.message-form button:disabled,
+.message-form input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- модальное окно звонка ---------- */
+.call-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.call-content {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+  width: 90%;
+  max-width: 700px;
+}
+
+.videos {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.videos video {
+  width: 100%;
+  max-width: 320px;
+  background: #000;
+  border-radius: 8px;
+}
+
+#local-video {
+  max-width: 150px;
+}
+
+.call-controls button {
+  padding: 10px 20px;
+  margin: 0 6px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#accept-call-btn {
+  background: #4caf50;
+  color: #fff;
+}
+
+#reject-call-btn {
+  background: #d9534f;
+  color: #fff;
+}

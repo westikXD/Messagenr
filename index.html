@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>Простой мессенджер</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== ЭКРАН ВХОДА ПО НИКНЕЙМУ ===================== -->
+  <div id="login-screen" class="screen">
+    <div class="login-box">
+      <h1>Вход в мессенджер</h1>
+      <input id="nickname-input" type="text" placeholder="Введите ваш ник" maxlength="20" />
+      <button id="login-btn">Войти</button>
+      <p id="login-error" class="error"></p>
+    </div>
+  </div>
+
+  <!-- ===================== ОСНОВНОЙ ЭКРАН ПРИЛОЖЕНИЯ ===================== -->
+  <div id="app-screen" class="screen hidden">
+    <div class="app">
+
+      <!-- Список онлайн-пользователей -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          Вы: <span id="my-nickname"></span>
+        </div>
+        <h3>Онлайн</h3>
+        <ul id="users-list"></ul>
+      </aside>
+
+      <!-- Окно чата -->
+      <main class="chat">
+        <div class="chat-header">
+          <span id="chat-with">Выберите собеседника слева</span>
+          <div class="call-buttons">
+            <button id="audio-call-btn" title="Аудиозвонок" disabled>📞</button>
+            <button id="video-call-btn" title="Видеозвонок" disabled>🎥</button>
+          </div>
+        </div>
+
+        <div id="messages" class="messages"></div>
+
+        <form id="message-form" class="message-form">
+          <label class="attach-btn" title="Прикрепить фото">
+            📎
+            <input type="file" id="photo-input" accept="image/*" hidden />
+          </label>
+          <img id="photo-preview" class="hidden" />
+          <input id="message-input" type="text" placeholder="Введите сообщение..." autocomplete="off" disabled />
+          <button type="submit" id="send-btn" disabled>Отправить</button>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <!-- ===================== МОДАЛЬНОЕ ОКНО ЗВОНКА ===================== -->
+  <div id="call-modal" class="call-modal hidden">
+    <div class="call-content">
+      <p id="call-status">Звонок...</p>
+      <div class="videos">
+        <video id="local-video" autoplay playsinline muted></video>
+        <video id="remote-video" autoplay playsinline></video>
+      </div>
+      <div class="call-controls">
+        <button id="accept-call-btn" class="hidden">Принять</button>
+        <button id="reject-call-btn">Завершить</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Библиотека socket.io-client, раздаётся автоматически сервером socket.io -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
